@@ -4,6 +4,7 @@ import RecallScreen from "@/components/activity/RecallScreen";
 import MeaningScreen from "@/components/activity/MeaningScreen";
 import SmallStepScreen from "@/components/activity/SmallStepScreen";
 import AffirmationScreen from "@/components/activity/AffirmationScreen";
+import LanguageSelector from "@/components/LanguageSelector";
 import floralBg from "@/assets/floral-bg.png";
 
 export interface ActivityData {
@@ -44,6 +45,7 @@ const Index = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
+      <LanguageSelector />
       <div className="w-full max-w-md relative z-10">
         {screen === 1 && <IntroScreen onNext={() => setScreen(2)} />}
         {screen === 2 && (

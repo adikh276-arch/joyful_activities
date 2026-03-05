@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import ActivityInput from "./ActivityInput";
 import type { ActivityData } from "@/pages/Index";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   data: ActivityData;
@@ -10,6 +11,7 @@ interface Props {
 }
 
 const SmallStepScreen = ({ data, onChange, onGoHome, onSave }: Props) => {
+  const { t } = useTranslation();
   const handleSave = () => {
     onSave();
   };
@@ -17,29 +19,29 @@ const SmallStepScreen = ({ data, onChange, onGoHome, onSave }: Props) => {
   return (
     <div className="animate-fade-in-up space-y-8">
       <div className="space-y-2">
-      <h1 className="text-[22px] font-heading font-semibold text-foreground text-center">
-          A Small Step Forward
+        <h1 className="text-[22px] font-heading font-semibold text-foreground text-center">
+          {t('smallStep.title')}
         </h1>
       </div>
 
       <div className="space-y-5 text-justified text-foreground font-body leading-relaxed">
-        <p>You do not need to change everything at once.</p>
-        <p>Would it feel possible to reconnect with this activity in a small way?</p>
+        <p>{t('smallStep.p1')}</p>
+        <p>{t('smallStep.p2')}</p>
       </div>
 
       <ActivityInput
-        label="One small step I could take this week is..."
+        label={t('smallStep.input1_label')}
         value={data.smallStep}
         onChange={(v) => onChange({ smallStep: v })}
-        placeholder="e.g. go for a 10-minute walk"
+        placeholder={t('smallStep.input1_placeholder')}
       />
 
       <div className="space-y-3">
         <Button variant="calm" size="lg" onClick={handleSave}>
-          Save
+          {t('smallStep.button_save')}
         </Button>
         <Button variant="calmOutline" size="lg" onClick={onGoHome}>
-          Go to Home
+          {t('smallStep.button_home')}
         </Button>
       </div>
     </div>
